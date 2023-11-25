@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+            {{ __('プロフィール設定') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("アカウントのプロフィール情報とメールアドレスを更新します") }}
         </p>
     </header>
 
@@ -18,13 +18,13 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('ユーザー名')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('メールアドレス')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
@@ -46,9 +46,26 @@
                 </div>
             @endif
         </div>
+        
+         <div>
+            <x-input-label for="awaketime" :value="__('起床時間')" />
+            <x-text-input id="awaketime" name="awaketime" type="time" class="mt-1 block w-full" :value="old('awaketime', $user->awaketime)" required autofocus autocomplete="awaketime" />
+            <x-input-error class="mt-2" :messages="$errors->get('awaketime')" />
+        </div>
+        
+        <div>
+            <x-input-label for="" :value="__('曲選択')" />
+            
+            <select>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            <x-input-error class="mt-2" :messages="$errors->get('songs')" />
+        </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('保存') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
