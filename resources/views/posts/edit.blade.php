@@ -1,7 +1,8 @@
 <x-app-layout>
-    <h1 class="title">編集画面</h1>
+    <h1 class="title">占い</h1>
     <div class="content">
         <form action="/posts/{{ $post->id }}" method="POST">
+            <button onclick="fortuneButton()">占う</button>
             @csrf
             @method('PUT')
             <div class='content__title'>
@@ -14,5 +15,13 @@
             </div>
             <input type="submit" value="保存">
         </form>
+    <script>
+        function fortuneButton() {
+            var fortunes = ['大吉','中吉','小吉'];
+            var randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)];
+            
+            alert('今日の運勢は「'+ randomFortune +'」です');
+        }
+    </script>
     </div>
 </x-app-layout>
