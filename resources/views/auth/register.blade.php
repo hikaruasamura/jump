@@ -41,8 +41,8 @@
         
         <div>
             <h2>起床時間</h2>
-            <input type="time" name="post[awaketime]" placeholder="" value="{{ old('post.awaketime') }}"/>
-            <p class="awaketime">{{ $errors->first('post.awaketime') }}</p>
+            <input type="time" name="user[awaketime]" placeholder="" value="{{ old('user.awaketime') }}"/>
+            <p class="awaketime">{{ $errors->first('user.awaketime') }}</p>
         </div>
         <div>
             <h2>曲選択</h2>
