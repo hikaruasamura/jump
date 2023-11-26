@@ -56,10 +56,10 @@
         <div>
             <x-input-label for="" :value="__('曲選択')" />
             
-            <select>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+            <select name="songs" id="user-select">
+                    <option value="1" {{$user->song_id == 1? "selected" : ""}}>1</option>
+                    <option value="2" {{$user->song_id == 2? "selected" : ""}}>2</option>
+                    <option value="3" {{$user->song_id == 3? "selected" : ""}}>3</option>
                 </select>
             <x-input-error class="mt-2" :messages="$errors->get('songs')" />
         </div>

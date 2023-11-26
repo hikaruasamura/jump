@@ -27,10 +27,18 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
-
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+         $request->user()->awaketime = $request->awaketime;
+         $request->user()->song_id = $request->songs;
+        // and ($request->user()->isDirty('awaketime')) {
+        //     $request->user()->awaketime_verified_at = null;
+        // }
+        
+        // and ($request->user()->isDirty('songs')) {
+        //     $request->user()->song_id_verified_at = null;
+        // }
 
         $request->user()->save();
 
@@ -57,4 +65,11 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
+    // public function editawketimes(Request $request): View
+    // {
+    //     return view('profile.awaketime', [
+    //         'user' => $request->user(),
+    //     ]);
+    // }
 }

@@ -41,12 +41,12 @@
         
         <div>
             <h2>起床時間</h2>
-            <input type="time" name="user[awaketime]" placeholder="" value="{{ old('user.awaketime') }}"/>
+            <input type="time" name="awaketime" placeholder="" value="{{ old('user.awaketime') }}"/>
             <p class="awaketime">{{ $errors->first('user.awaketime') }}</p>
         </div>
         <div>
             <h2>曲選択</h2>
-                <select>
+                <select name="songs" id="user-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

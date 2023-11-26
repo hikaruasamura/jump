@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'awaketime',
+        'song_id',
     ];
 
     /**
@@ -41,4 +43,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function song(){
+        return $this->belongsTo(Song::class);
+    }
 }
