@@ -20,15 +20,15 @@ class SongSeeder extends Seeder
     {
         DB::table('songs')->insert([
                 'name' => 'song1',
-                'song' => 'test1',
+                'song' => '1.mp3',
          ]);
         DB::table('songs')->insert([
-                'name' => 'song1',
-                'song' => 'test1',
+                'name' => 'song2',
+                'song' => '2.mp3',
          ]);
         DB::table('songs')->insert([
-                'name' => 'song1',
-                'song' => 'test1',
+                'name' => 'song3',
+                'song' => '3.mp3',
          ]);
 
     }
