@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TimeController;
 
 
 /*
@@ -39,5 +40,12 @@ Route::group(['middleware' => ['auth']], function(){
    Route::delete('/posts/{post}',  [PostController::class, 'delete']);
    Route::get('/posts/{post}/edit',  [PostController::class, 'edit']);
    Route::get('/categories/{category}', [CategoryController::class,'index']);
+});
+
+//早起きアプリルーティング
+Route::group(['middleware' => ['auth']], function(){
+   Route::get('/start', [TimeController::class, 'start']);
+   Route::post('/start/fortune', [TimeController::class, 'fortune']);
+   Route::post('/start/song', [TimeController::class, 'song']);
 });
 require __DIR__.'/auth.php';
