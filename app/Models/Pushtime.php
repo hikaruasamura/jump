@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pushtime extends Model
 {
     use HasFactory;
+
     public $timestamps = false;
     protected $fillable = [
         'time',
@@ -18,4 +19,5 @@ class Pushtime extends Model
      public function user(){
         return $this->belongsTo(User::class);
     }
+
 }

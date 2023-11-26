@@ -3,16 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pushtime;
 use DateTime;
 
+
 class TimeController extends Controller
 {
-    public function start()
+    public function start(Pushtime $pushtime)
     {
+
+        $pushtimes=$pushtime->get();
+        $count=0;
+        foreach($pushtimes as $pushtime){
+            if($pushtime->judge==0){
+                $count=$count+1;
+            }
+        }
         $song = Auth::user()->song()->first();
-        return view('times/start')->with(['song'=>$song]);
+        return view('times/start')->with(['rank' => $count,'song'=>$song]);
+        
+
     }
 
     public function fortune()
