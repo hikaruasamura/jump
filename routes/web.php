@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function(){
 //早起きアプリルーティング
 Route::group(['middleware' => ['auth']], function(){
    Route::get('/start', [TimeController::class, 'start']);
-   Route::post('/start/fortune', [TimeController::class, 'fortune']);
+   Route::get('/start/fortune', [TimeController::class, 'fortune']);
   
 });
      Route::get('/start/song', [TimeController::class, 'song']);
