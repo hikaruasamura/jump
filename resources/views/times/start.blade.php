@@ -2,14 +2,14 @@
     <h1 class="title">早起きアプリ</h1>
 
      @if($rank<3)
-        <h3>あなたの段位は初段です</h3>
+        <h3 class="one">あなたの段位は初段です</h3>
         @elseif($rank<10)
-        <h3>あなたの段位は二段です</h3>
+        <h3 class="two">あなたの段位は二段です</h3>
         @else
-        <h3>あなたの段位は三段です</h3>
+        <h3 class="three">あなたの段位は三段です</h3>
     @endif  
     <div class="content">
-           <button onclick="sound()" id='button'>再生</button>
+           <button class="music" onclick="sound()" id='button'>再生</button>
             <audio id="sound-file01" preload="auto">
                 <source src="{{ asset('/mp3/'.$song->song) }}" type="audio/mp3">
             </audio>

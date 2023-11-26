@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+x-app-layout{
+    background-color:#008080; 
+}
+
+h3{
+    text-align: center;
+}
+
+.three{
+     font-size: 30px;
+    color:gold;
+}
+
+.two{
+    font-size: 30px;
+    color: silver;
+}
+
+.one{
+    font-size: 30px;
+    color: black;
+}
+
+.music{
+    margin-left: 400px; 
+}
+
+
+
+.title{
+    font-size: 40px;
+}
+
+body{
+    background-color:red; 
+}
