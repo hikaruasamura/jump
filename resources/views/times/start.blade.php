@@ -1,16 +1,36 @@
 <x-app-layout>
     <h1 class="title">早起きアプリ</h1>
-    <h3>あなたの段位は{{$rank}}段です</h3>
+    <h3>あなたの段位段です</h3>
+        
     <div class="content">
-            <p><a href="/start/song" class="btn btn--cornflowerblue" type="button" onClick="sound_01()">01</a></p>
+           <button onclick="sound()" id='button'>再生</button>
             <audio id="sound-file01" preload="auto">
-                <source src="{{ asset('') }}" type="audio/mp3">
+                <source src="{{ asset('/mp3/'.$song->song) }}" type="audio/mp3">
             </audio>
         </form>
     </div>
     <h2>今日の運勢を知りたい方はこちら↓</h2>
     <a href="/start/fortune"><button>占う</button></a>
     <script>
-        function sound_01(){ document.getElementById( 'sound-file01' ).play() ; }
+        function sound(){ 
+            const music = document.getElementById( 'sound-file01' );
+            if (music.paused){
+                document.getElementById('button').innerHTML = '一時停止';
+                music.play();
+                fetch('/start/song')
+            .then((res)=>{
+                console.log(res);
+                console.log('OK');
+            })
+            .catch((err)=>{
+                console.log(err);
+                console.log('NG');
+            })
+            } else{
+                 document.getElementById('button').innerHTML = '再生';
+                music.pause();
+            }
+            
+        }
     </script>
 </x-app-layout>

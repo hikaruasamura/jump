@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth']], function(){
 Route::group(['middleware' => ['auth']], function(){
    Route::get('/start', [TimeController::class, 'start']);
    Route::post('/start/fortune', [TimeController::class, 'fortune']);
-   Route::post('/start/song', [TimeController::class, 'song']);
+  
 });
+     Route::get('/start/song', [TimeController::class, 'song']);
 require __DIR__.'/auth.php';

@@ -46,4 +46,7 @@ class User extends Authenticatable
     public function song(){
         return $this->belongsTo(Song::class);
     }
+     public function pushtimes(){
+        return $this->hasMany(Pushtime::class);
+    }
 }
